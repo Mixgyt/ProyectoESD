@@ -1,0 +1,303 @@
+﻿@using System.Reflection
+@using Proyecto_Final_Estructura_De_Datos;
+@model dynamic
+
+@{
+    ViewData["Title"] = "Hotel Residencial";
+    ViewData["HabitacionSeleccionada"] = MethodBase.GetCurrentMethod().DeclaringType.Name;
+}
+
+<!-- ***** CABEZERA PARTE SLIDE IMAGENES DE FONDO DE LAS HAITACIONES***** -->
+
+<div class="main-banner">
+    <div class="item">
+        <img src="assets/images/banner-01.jpg" alt="Banner de Reservación">
+        <div class="header-text">
+            <a href="#reservaB">
+                <span class="category">Crea tu<em> Reservación</em></span>
+            </a>
+            <h2 style="color: white;">La mejor Opción para vacacionar</h2>
+        </div>
+    </div>
+</div>
+
+
+
+  <!--Seleccion de habitaciones  -->
+  <div class="section best-deal"  style="margin-top: 0px;" id="reservaB">
+    <div class="container" >
+<h2  style="text-align: center;">Selecciona las fechas para tu reserva</h2>
+
+       <div class="calendario-container" style="margin-bottom: 40px;" >
+        <div class="formulario-fechas">
+
+            <label for="check_in">Fecha de entrada:</label>
+            <input type="date" id="check_in" name="check_in">
+            <label for="check_out">Fecha de salida:</label>
+            <input type="date" id="check_out" name="check_out">
+        </div>
+
+        <!-- Botón para continuar -->
+        <a href="#continuarReserva" class="btn-reserva" >Continúa con la reserva</a>
+    </div>
+
+
+      <div class="row" id="continuarReserva">
+        <div class="col-lg-4">
+          <div class="section-heading">
+            <h6 id="reservaciones">| Reservaciones</h6>
+            <h2>Encuentra las mejores Opciones Aqui!</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Mediana</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Grande</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Presidencial</button>
+                  </li>
+                </ul>
+              </div>              
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Espacio Total <span>85 m2</span></li>
+                          <li>Selecciona:<span style="float: none;">
+	                          <select id="tipo_habitacion" name="tipo_habitacion" class="selected_habitacion">
+		                          <option value=""># Habitacion</option>
+		                          @foreach (Habitacion item in Model.Habitaciones)
+		                          {
+			                          <option value="@item">@(item.Descripcion)</option>
+		                          }
+	                          </select>
+                          </span></li> 
+                          <li>Cantidad de cuartos <span>4</span></li>
+                          <li>Habitaciones<br>disponibles<span>@((Model.Habitaciones as List<Habitacion>).Count)</span></li>
+                          <li>Camas <span></span></li>
+                          <li>Precio por Noche <span>$100</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-01.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Descripcion de la habitación</h4>
+
+                      <p>Disfruta de una estancia inolvidable en nuestra amplia habitación de 85 m², diseñada para ofrecer el máximo confort y funcionalidad. Con un diseño moderno y bien distribuido, esta habitación cuenta con 4 cuartos que incluyen:
+                      <br><br>
+                      2 cómodas camas ideales para un descanso reparador.
+                      Espacios adicionales para relajarte o trabajar.
+                      </p>
+                      <a href="#serviciosA" class="btn-reserva" style="margin-top:15px;"><i class="fa fa-check"></i>Confirmar Reserva</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Espacio Total <span>100 m2</span></li>
+                          <li>Selecciona:<span style="float: none;"><select id="tipo_habitacion" name="tipo_habitacion" class="selected_habitacion">
+                              <option value="">Numero de Habitacion</option>
+                              <option value="simple">0001</option>
+                              <option value="doble">0002</option>
+                              <option value="suite">0003</option>
+                              <option value="familiar">0004</option>
+                          </select></span></li>
+                          <li>Cantidad de cuartos <span>7</span></li>
+                          <li>Habitaciones<br>disponibles<span>(NUM)</span></li>
+                          <li>Camas <span>4</span></li>
+                          <li>Precio por Noche <span>$200</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-02.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                       <h4>Descripcion de la hanitacion</h4>
+                      <p>"Explora el lujo y la comodidad en nuestra habitación de 100 m², diseñada para alojar a familias numerosas o grupos que buscan un espacio amplio y funcional. Esta habitación incluye 7 cuartos que brindan privacidad y comodidad a cada huésped.</p>
+                      <a href="#serviciosA" class="btn-reserva" style="margin-top:15px;"><i class="fa fa-check"></i>Confirmar Reserva</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Espacio total <span>200 m2</span></li>
+                          <li>Selecciona:<span style="float: none;"><select id="tipo_habitacion" name="tipo_habitacion" class="selected_habitacion">
+                              <option value="">Numero de Habitacion</option>
+                              <option value="simple">0001</option>
+                              <option value="doble">0002</option>
+                              <option value="suite">0003</option>
+                              <option value="familiar">0004</option>
+                          </select></span></li>
+                          <li>Cantidad de cuartos <span>12</span></li>
+                          <li>Habitaciones<br>disponibles<span>(NUM)</span></li>
+                          <li>Camas <span>7</span></li>
+                          <li>Precio por Noche <span>$400</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-03.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                       <h4>Descripcion de la hanitacion</h4>
+                      <p>Esta espaciosa suite está diseñada para ofrecer una experiencia de alojamiento superior. Con 12 cuartos, los huéspedes pueden disfrutar de áreas privadas y comunes, ideales para reuniones familiares o de negocios. Las 7 camas están distribuidas estratégicamente para garantizar un descanso óptimo.</p>
+                      <a href="#serviciosA" class="btn-reserva" style="margin-top:15px;"><i class="fa fa-check"></i>Confirmar Reserva</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="properties section" id="serviciosA">
+    <div class="container">
+
+
+
+      <div class="calendario-container" style="margin-bottom: 40px;" >
+        <div class="formulario-fechas">
+            <h4>Agrega servcios adicionales a tu estadia</h4>   
+        </div>
+        <!-- Botón para continuar -->
+        <div class="icon-button"> <a href="#serviciosA"><i class="fa fa-check"></i> Reservar Habitacion</a>
+        </div>
+    </div>
+
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html">
+                <img src="~/assets/images/property-01.jpg" alt="si" Style=" width: 100%; height: 100%; object-fit: cover;">
+            </a>
+            <span class="category">Restaurante</span>
+            <h6>$55</h6>
+            <h4>Restaurante de Lujo del Hotel, Diversos Platillos 3 comidas</h4>
+            <ul>
+              <li>Bebida</li>
+              <li>Entrada</li>
+              <li>Plato Fuerte<span></span></li>
+              <li>Postre<span></span></li>
+            </ul>
+            <div class="main-button">
+              <a href="#">Agregar</a>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-04.jpg" alt=""></a>
+            <span class="category">Wi-Fi Premium</span>
+            <h6>$5</h6>
+            <h4><a href="property-details.html">Conexión de alta velocidad costo por dia</a></h4>
+            <ul>
+              <li>Áreas dedicadas de coworking. <span></span></li>
+              <li>Streaming sin interrupciones.<span></span></li>
+              <li>Red 5G de 50GB Fibra Optica.<span></span></li>
+            </ul>
+            <div class="main-button">
+              <a href="">Agregar</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-05.jpg" alt=""></a>
+            <span class="category">Club Infantile</span>
+            <h6>$20</h6>
+            <h4><a href="property-details.html">Servicio de cuidado Infantil por dia</a></h4>
+            <ul>
+              <li>Zonas de juegos seguras. <span></span></li>
+              <li>Actividades supervisadas para niños. <span>4</span></li>
+              <li>Servicios de niñera personalizada.</li>
+            </ul>
+            <div class="main-button">
+              <a href="#">Agregar</a>
+            </div>
+          </div>
+        </div>
+
+                <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-02.jpg" alt=""></a>
+            <span class="category">Spa del Hotel</span>
+            <h6>$20</h6>
+            <h4>Relájate y renueva energías con nuestros exclusivos servicios de spa. Entrada por persona</h4>
+            <ul>
+              <li>Masaje<span></span></li>
+              <li>Acceso a sauna y jacuzzi.<span></span></li>
+              <li>Productos premium para cuidado de la piel.</li>
+            </ul>
+            <div class="main-button">
+              <a href="#">Agregar</a>
+            </div>
+          </div>
+        </div>
+
+                <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-06.jpg" alt=""></a>
+            <span class="category">Tours </span>
+            <h6>$120</h6>
+            <h4><a href="property-details.html">Tours Turísticos Locales, costo por Tour</a></h4>
+            <ul>
+              <li>Recorridos guiados por puntos históricos y culturales.<span></span></li>
+              <li>Tours de aventura como caminatas o ciclismo. <span></span></li>
+              <li>Paseos en barco o actividades acuáticas.</li>
+            </ul>
+            <div class="main-button">
+              <a href="#">Agregar</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-03.jpg" alt=""></a>
+            <span class="category">Transporte</span>
+            <h6>$45</h6>
+            <h4>Administra tus Transporte, todo en un mismo lugar. aplica toda tu estadia.</h4>
+            <ul>
+              <li>Reservas de transporte al aeropuerto. <span></span></li>
+              <li>Organización de tours locales y visitas a localidades cercanas.</li>
+
+            </ul>
+            <div class="main-button">
+              <a href="#">Agregar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

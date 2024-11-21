@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "Servicios";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Nuestros</a></span>
+          <h3>SERVICIOS</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section properties">
+    <div class="container">
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Mostrar Todos</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Restaurantes y Transportes</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Bienestar y Confort</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Entretenimiento y Experiencias</a>
+        </li>
+      </ul>
+
+      <div class="row properties-box">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-01.jpg" alt=""></a>
+             <span class="category">Restaurante</span>
+            <h6>$55</h6>
+            <h4>Restaurante de Lujo del Hotel, Diversos Platillos 3 comidas</h4>
+            <ul>
+              <li>Bebida</li>
+              <li>Entrada</li>
+              <li>Plato Fuerte<span></span></li>
+              <li>Postre<span></span></li>
+            </ul>
+            <div class="main-button">        
+               <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+      
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-02.jpg" alt=""></a>
+            <span class="category">Spa del Hotel</span>
+            <h6>$20</h6>
+            <h4>Relájate y renueva energías con nuestros exclusivos servicios de spa. Entrada por persona</h4>
+            <ul>
+              <li>Masaje<span></span></li>
+              <li>Acceso a sauna y jacuzzi.<span></span></li>
+              <li>Productos premium para cuidado de la piel.</li>
+            </ul>
+            <div class="main-button">
+              <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv rac">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-03.jpg" alt=""></a>
+           <span class="category">Transporte</span>
+            <h6>$45</h6>
+            <h4>Administra tus Transporte, todo en un mismo lugar. aplica toda tu estadía.</h4>
+            <ul>
+              <li>Reservas de transporte al aeropuerto. <span></span></li>
+              <li>Organización de tours locales y visitas a localidades cercanas.</li>
+
+            </ul>
+            <div class="main-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-04.jpg" alt=""></a>
+            <span class="category">Wi-Fi Premium</span>
+            <h6>$5</h6>
+            <h4><a href="property-details.html">Conexión de alta velocidad costo por día</a></h4>
+            <ul>
+              <li>Áreas dedicadas de coworking. <span></span></li>
+              <li>Streaming sin interrupciones.<span></span></li>
+              <li>Red 5G de 50GB Fibra óptica.<span></span></li>
+            </ul>
+            <div class="main-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-05.jpg" alt=""></a>
+            <span class="category">Club Infantile</span>
+            <h6>$20</h6>
+            <h4><a href="property-details.html">Servicio de cuidado Infantil por dia</a></h4>
+            <ul>
+              <li>Zonas de juegos seguras. <span></span></li>
+              <li>Actividades supervisadas para niños. <span>4</span></li>
+              <li>Servicios de niñera personalizada.</li>
+            </ul>
+            <div class="main-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
+          <div class="item">
+            <a href="property-details.html"><img src="assets/images/property-06.jpg" alt=""></a>
+            <span class="category">Tours </span>
+            <h6>$120</h6>
+            <h4><a href="property-details.html">Tours Turísticos Locales, costo por Tour</a></h4>
+            <ul>
+              <li>Recorridos guiados por puntos históricos y culturales.<span></span></li>
+              <li>Tours de aventura como caminatas o ciclismo. <span></span></li>
+              <li>Paseos en barco o actividades acuáticas.</li>
+            </ul>
+            <div class="main-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="reservaB">Hacer Reservación</a>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  </div>
+

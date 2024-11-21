@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Proyecto_Final_Estructura_De_Datos</title>
+    
+
+
+     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Hotel Residencial</title>
+
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="~/assets/css/owl.css">
+    <link rel="stylesheet" href="~/assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!--
+
+    DE DONDE ES LA PAGUINA -> https://templatemo.com/tm-591-villa-agency
+
+    -->
+
+
+</head>
+<body id="page-top">
+
+    <!-- ***** PANTALLA DE CARGA ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+	<!-- Main Content -->
+	<div id="content">
+
+		<!-- Topbar -->
+		<nav style="box-shadow: 0 .5rem 1rem rgb(33 37 41 / 0%) !important;" class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+			<nav class="main-nav" >
+				<!-- ***** Logo Start ***** -->
+
+				<!-- ***** Logo End ***** -->
+				<!-- ***** Menu Start ***** -->
+				<ul class="nav">
+					<li id="hotelG"> <a href="index.html" class="logo"><h1 style="line-height: 40px" class="transicion-forced">HOTEL</h1></a></li>
+
+					<li><a asp-area="" asp-controller="Home" asp-action="Index" >Reservaciones</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="servicios">Servicios</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="Habitaciones">Habitaciones</a></li>
+					<li style="display:none"><a href=""></a></li>
+				</ul>   
+
+				<a class='menu-trigger' style="transform: translate(-150px, -5px); z-index:999;">
+					<span>Menu</span>
+				</a>
+			</nav>
+
+
+			<!-- Topbar Navbar -->
+			<ul class="navbar-nav ml-auto"  >
+
+
+				<!-- Nav Item - Alerts -->
+				<li class="nav-item dropdown no-arrow mx-1">
+					<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-bell fa-fw"></i>
+						<!-- Counter - Alerts -->
+						<span class="badge badge-danger badge-counter">3+</span>
+					</a>
+					<!-- Dropdown - Alerts -->
+					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+					     aria-labelledby="alertsDropdown">
+						<h6 class="dropdown-header">
+							Alertas
+						</h6>
+						<a class="dropdown-item d-flex align-items-center" href="#">
+							<div class="mr-3">
+								<div class="icon-circle bg-primary">
+									<i class="fas fa-file-alt text-white"></i>
+								</div>
+							</div>
+							<div>
+								<div class="small text-gray-500">xxxxxx</div>
+								xxxxxxxxxxx
+							</div>
+						</a>
+						<a class="dropdown-item text-center small text-gray-500" href="#">Mostrar mas Alertas</a>
+					</div>
+				</li>
+
+				<!-- Nav Item - Messages -->
+				<li class="nav-item dropdown no-arrow mx-1">
+					<a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-envelope fa-fw"></i>
+						<!-- Counter - Messages -->
+						<span class="badge badge-danger badge-counter">7</span>
+					</a>
+					<!-- Dropdown - Messages -->
+					<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+					     aria-labelledby="messagesDropdown">
+						<h6 class="dropdown-header">
+							Centro de Mensajes
+						</h6>
+						<a class="dropdown-item d-flex align-items-center" href="#">
+							<div class="dropdown-list-image mr-3">
+								<img class="rounded-circle" src="img/undraw_profile_1.svg"
+								     alt="...">
+								<div class="status-indicator bg-success"></div>
+							</div>
+
+							<div>
+								<div class="text-truncate">xxxxxxxxxxx</div>
+								<div class="small text-gray-500">xxxxx</div>
+							</div>
+						</a>
+						<a class="dropdown-item text-center small text-gray-500" href="#">Leer Mas Mensajes</a>
+					</div>
+				</li>
+
+				<div class="topbar-divider d-none d-sm-block"></div>
+
+				<!-- Nav Item - User Information -->
+				<li class="nav-item dropdown no-arrow">
+					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="mr-2 d-none d-lg-inline text-gray-600 small">Juan C</span>
+						<img class="img-profile rounded-circle"
+						     src="img/undraw_profile.svg">
+					</a>
+					<!-- Dropdown - User Information -->
+					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+					     aria-labelledby="userDropdown">
+						<a class="dropdown-item" href="#">
+							<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+							Perfil
+						</a>
+						<a class="dropdown-item" href="#">
+							<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+							Historial De Reserva
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+							<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+							Salir
+						</a>
+					</div>
+				</li>
+
+			</ul>
+		</nav>
+			<!-- End of Topbar -->
+			</div>
+		</div>
+	</div>
+  </header>
+
+    <div class="">
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+    </div>
+
+
+   <footer>
+    <div class="container">
+      <div class="col-lg-8">
+        <p>Copyright © 2024 Proyecto Final Estructura De Datos</p>
+      </div>
+    </div>
+  </footer>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseas Cerrar Sesion?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona cerrar si estas listo para cerrar sesion.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary"  asp-area="" asp-controller="Admin" asp-action="Index" >Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="~/vendor/jquery/jquery.min.js"></script>
+  <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="~/assets/js/isotope.min.js"></script>
+  <script src="~/assets/js/owl-carousel.js"></script>
+  <script src="~/assets/js/counter.js"></script>
+  <script src="~/assets/js/custom.js"></script>
+
+
+  <script src="~/js/sb-admin-2.min.js"></script>
+
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
+
+
+</body>
+</html>
