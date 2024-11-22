@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Proyecto_Final_Estructura_De_Datos</title>
-    
 
 
      <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
@@ -13,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Hotel Residencial</title>
+    <title>@ViewData["Title"] - Hotel Residencial</title>
 
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -65,7 +63,7 @@
 				<!-- ***** Logo End ***** -->
 				<!-- ***** Menu Start ***** -->
 				<ul class="nav">
-					<li id="hotelG"> <a href="index.html" class="logo"><h1 style="line-height: 40px" class="transicion-forced">HOTEL</h1></a></li>
+					<li id="hotelG"> <a asp-action="Index" class="logo"><h1 style="line-height: 40px" class="transicion-forced">HOTEL</h1></a></li>
 
 					<li><a asp-area="" asp-controller="Home" asp-action="Index" >Reservaciones</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="servicios">Servicios</a></li>
@@ -217,7 +215,7 @@
                 <div class="modal-body">Selecciona cerrar si estas listo para cerrar sesion.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary"  asp-area="" asp-controller="Admin" asp-action="Index" >Cerrar</a>
+                    <a class="btn btn-primary"  asp-area="" asp-controller="Habitaciones" asp-action="Index" >Cerrar</a>
                 </div>
             </div>
         </div>

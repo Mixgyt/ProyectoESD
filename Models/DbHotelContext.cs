@@ -65,7 +65,7 @@ public partial class DbHotelContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__tblReserv__idHab__403A8C7D");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.TblReservas)
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__tblReserv__idUsu__412EB0B6");

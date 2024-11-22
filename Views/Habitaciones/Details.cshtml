@@ -1,0 +1,43 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Habitacion
+
+@{
+    ViewData["Title"] = "Detalles Habitación";
+	Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Habitacion</h4>
+    <hr />
+    <dl class="row">
+	    <dt class = "col-sm-2">
+			Descripción de la habitación
+	    </dt>
+	    <dd class = "col-sm-10">
+		    @Html.DisplayFor(model => model.Descripcion)
+	    </dd>
+	    <dt class="col-sm-2">
+			Tipo de habitación
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.Tipo)
+	    </dd>
+	    <dt class="col-sm-2">
+			Precio por noche
+	    </dt>
+	    <dd class="col-sm-10">
+		    $ @Html.DisplayFor(model => model.PrecioNoche)
+	    </dd>
+	    <dt class="col-sm-2">
+			Camas en la habitación
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.CantidadPersona)
+	    </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdHabitacion">Editar Habitación</a> |
+    <a asp-action="Index">Volver atras</a>
+</div>

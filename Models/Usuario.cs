@@ -13,7 +13,7 @@ public partial class Usuario
 
     public string Clave { get; set; } = null!;
 
-    public int? Rol { get; set; }
+    public RolUsuario? Rol { get; set; }
 
-    public virtual ICollection<Reserva> TblReservas { get; set; } = new List<Reserva>();
+    public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 }

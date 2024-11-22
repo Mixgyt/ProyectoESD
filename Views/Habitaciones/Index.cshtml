@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Proyecto_Final_Estructura_De_Datos.Models.Habitacion>
+
+@{
+    ViewData["Title"] = "Habitaciones";
+	Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+	<a asp-action="Create">Crear habitación</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+	    <th>
+		    Descripción de la habitación
+	    </th>
+	    <th>
+		    Tipo de habitación
+	    </th>
+	    <th>
+		    Precio por noche
+	    </th>
+	    <th>
+		    Camas en la habitación
+	    </th>
+	    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Descripcion)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Tipo)
+		</td>
+		<td>
+			$ @Html.DisplayFor(modelItem => item.PrecioNoche)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.CantidadPersona)
+		</td>
+		<td>
+			<a asp-action="Edit" asp-route-id="@item.IdHabitacion">Editar</a> |
+			<a asp-action="Details" asp-route-id="@item.IdHabitacion">Detalles</a> |
+			<a asp-action="Delete" asp-route-id="@item.IdHabitacion">Eliminar</a>
+		</td>
+	</tr>
+}
+    </tbody>
+</table>

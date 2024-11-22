@@ -1,0 +1,46 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Habitacion
+
+@{
+    ViewData["Title"] = "Eliminar Habitación";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas seguro de eliminar esta habitación?</h3>
+<div>
+    <h4>Habitacion</h4>
+    <hr />
+    <dl class="row">
+	    <dt class = "col-sm-2">
+		    Descripción de la habitación
+	    </dt>
+	    <dd class = "col-sm-10">
+		    @Html.DisplayFor(model => model.Descripcion)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Tipo de habitación
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.Tipo)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Precio por noche
+	    </dt>
+	    <dd class="col-sm-10">
+		    $ @Html.DisplayFor(model => model.PrecioNoche)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Camas en la habitación
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.CantidadPersona)
+	    </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdHabitacion" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
