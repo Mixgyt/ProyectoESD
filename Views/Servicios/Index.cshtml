@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Proyecto_Final_Estructura_De_Datos.Models.Servicio>
+
+@{
+    ViewData["Title"] = "Servicios";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Servicios</h1>
+
+<p>
+    <a asp-action="Create">Crear nuevo servicio</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+	        <th>
+		        Servicio
+	        </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Precio del servicio
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.NombreServicio)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Descripcion)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Precio)
+		</td>
+		<td>
+			<a asp-action="Edit" asp-route-id="@item.IdServicio">Editar</a> |
+			<a asp-action="Details" asp-route-id="@item.IdServicio">Detalles</a> |
+			<a asp-action="Delete" asp-route-id="@item.IdServicio">Eliminar</a>
+		</td>
+	</tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.ViewModels.ReservasViewModel
+
+@{
+    ViewData["Title"] = "Crear Reserva";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Crear</h1>
+
+<h4>Reserva</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label">Usuario que reservo</label>
+                <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHabitacion" class="control-label">Habitación reservada</label>
+                <select asp-for="IdHabitacion" class ="form-control" asp-items="ViewBag.IdHabitacion"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label">Fecha de inicio</label>
+                <input asp-for="FechaInicio" class="form-control" type="date"/>
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinal" class="control-label">Fecha de finalización</label>
+                <input asp-for="FechaFinal" class="form-control" type="date"/>
+                <span asp-validation-for="FechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioTotal" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

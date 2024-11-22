@@ -1,0 +1,40 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Servicio
+
+@{
+    ViewData["Title"] = "Eliminar Servicio";
+	Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estás seguro qué deseas eliminar este servicio?</h3>
+<div>
+    <h4>Servicio</h4>
+    <hr />
+    <dl class="row">
+	    <dt class = "col-sm-2">
+		    Servicio
+	    </dt>
+	    <dd class = "col-sm-10">
+		    @Html.DisplayFor(model => model.NombreServicio)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Descripción del servicio
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.Descripcion)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Precio del servicio
+	    </dt>
+	    <dd class="col-sm-10">
+		    $ @Html.DisplayFor(model => model.Precio)
+	    </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdServicio" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>

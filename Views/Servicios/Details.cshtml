@@ -1,0 +1,37 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Servicio
+
+@{
+    ViewData["Title"] = "Detalles Servicio";
+	Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Servicio</h4>
+    <hr />
+    <dl class="row">
+	    <dt class = "col-sm-2">
+		    Servicio
+	    </dt>
+	    <dd class = "col-sm-10">
+		    @Html.DisplayFor(model => model.NombreServicio)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Descripción del servicio
+	    </dt>
+	    <dd class="col-sm-10">
+		    @Html.DisplayFor(model => model.Descripcion)
+	    </dd>
+	    <dt class="col-sm-2">
+		    Precio del servicio
+	    </dt>
+	    <dd class="col-sm-10">
+		    $ @Html.DisplayFor(model => model.Precio)
+	    </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdServicio">Editar</a> |
+    <a asp-action="Index">Volver atrás</a>
+</div>

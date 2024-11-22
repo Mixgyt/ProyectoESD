@@ -10,35 +10,36 @@
 <h4>Habitación</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdHabitacion" />
-            <div class="form-group">
-	            <label asp-for="Descripcion" class="control-label">Descripción de la habitación</label>
-	            <input asp-for="Descripcion" class="form-control" placeholder="Descripción de la habitación"/>
-	            <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label">Tipo de habitación</label>
-                <select asp-for="Tipo" class="form-control" asp-items="@(new SelectList(Enum.GetValues<TipoHabitacion>()))"></select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecioNoche" class="control-label">Precio por noche</label>
-                <input asp-for="PrecioNoche" class="form-control" min="0" placeholder="1.00"/>
-                <span asp-validation-for="PrecioNoche" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CantidadPersona" class="control-label">Camas en la habitación</label>
-                <input asp-for="CantidadPersona" class="form-control" min="0" placeholder="Cantidad"/>
-                <span asp-validation-for="CantidadPersona" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-4">
+		<script src="~/js/custom_validates.js"></script>
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="IdHabitacion"/>
+			<div class="form-group">
+				<label asp-for="Descripcion" class="control-label">Descripción de la habitación</label>
+				<input asp-for="Descripcion" class="form-control" placeholder="Descripción de la habitación"/>
+				<span asp-validation-for="Descripcion" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Tipo" class="control-label">Tipo de habitación</label>
+				<select asp-for="Tipo" class="form-control" asp-items="@(new SelectList(Enum.GetValues<TipoHabitacion>()))"></select>
+				<span asp-validation-for="Tipo" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PrecioNoche" class="control-label">Precio por noche</label>
+				<input asp-for="PrecioNoche" id="positive-numbers" class="form-control" min="0" placeholder="1.00"/>
+				<span asp-validation-for="PrecioNoche" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CantidadPersona" class="control-label">Camas en la habitación</label>
+				<input asp-for="CantidadPersona" class="form-control" min="0" placeholder="Cantidad"/>
+				<span asp-validation-for="CantidadPersona" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Guardar" class="btn btn-primary"/>
+			</div>
+		</form>
+	</div>
 </div>
 
 <div>

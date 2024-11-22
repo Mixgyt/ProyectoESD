@@ -1,0 +1,46 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Servicio
+
+@{
+    ViewData["Title"] = "Editar Servicio";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Servicio</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<script src="~/js/custom_validates.js"></script>
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="NombreServicio" class="control-label">Nombre del Servicio</label>
+				<input asp-for="NombreServicio" class="form-control" placeholder="Nombre"/>
+				<span asp-validation-for="NombreServicio" class="text-danger"></span>
+			</div>
+			<input type="hidden" asp-for="IdServicio"/>
+			<div class="form-group">
+				<label asp-for="Descripcion" class="control-label">Descripción del servicio</label>
+				<input asp-for="Descripcion" class="form-control" placeholder="Descripcion"/>
+				<span asp-validation-for="Descripcion" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Precio" class="control-label">Precio del servicio</label>
+				<input asp-for="Precio" id="positive-numbers" class="form-control" placeholder="1.00"/>
+				<span asp-validation-for="Precio" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Guardar cambios" class="btn btn-primary"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+    <a asp-action="Index">Cancelar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
