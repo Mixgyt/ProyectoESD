@@ -27,12 +27,26 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers
 			return View();
 		}
 
-		public IActionResult Registro()
-		{
-			return View();
-		}
+        [HttpGet]
+        public IActionResult Registro()
+        {
+            return View();
+        }
 
-		public IActionResult Login()
+        [HttpPost]
+        public async Task<IActionResult> Registro(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                usuario.Rol = RolUsuario.Usuario;
+                _context.Add(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(usuario);
+        }
+
+        public IActionResult Login()
 		{
 			return View();
 		}
