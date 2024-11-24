@@ -11,38 +11,83 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <script src="~/js/date_validate.js"></script>
+        <form asp-action="Guardar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdUsuario" class="control-label">Usuario que reservo</label>
-                <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
+                <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.Usuarios"></select>
             </div>
             <div class="form-group">
                 <label asp-for="IdHabitacion" class="control-label">Habitación reservada</label>
-                <select asp-for="IdHabitacion" class ="form-control" asp-items="ViewBag.IdHabitacion"></select>
+                <select asp-for="IdHabitacion" class="form-control">
+                    @foreach (Habitacion item in ViewBag.Habitaciones)
+                    {
+                        <option value="@item.IdHabitacion">@item.Descripcion - @item.Tipo - $ @item.PrecioNoche / Noche</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="FechaInicio" class="control-label">Fecha de inicio</label>
-                <input asp-for="FechaInicio" class="form-control" type="date"/>
+                <input asp-for="FechaInicio" class="form-control" type="date" id="check_in"/>
                 <span asp-validation-for="FechaInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FechaFinal" class="control-label">Fecha de finalización</label>
-                <input asp-for="FechaFinal" class="form-control" type="date"/>
+                <input asp-for="FechaFinal" class="form-control" type="date" id="check_out"/>
                 <span asp-validation-for="FechaFinal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrecioTotal" class="control-label"></label>
+                <label>Servicios añadidos</label>
+                <table class="table">
+                    @for (int i = 0; i < (ViewBag.Servicios as List<Servicio>).Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">@(((List<Servicio>)ViewBag.Servicios)[i].NombreServicio)</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        @(((List<Servicio>)ViewBag.Servicios)[i].Descripcion)
+                                    </div>
+                                    <div class="btn btn-success">
+                                        <input class="btn btn-check" type="checkbox" name="serviciosid" value="@(((List<Servicio>)ViewBag.Servicios)[i].IdServicio)"/>
+                                        Agregar por $@(((List<Servicio>)ViewBag.Servicios)[i].Precio)
+                                    </div>
+                                </div>
+                            </td>
+                            @if (i + 1 < ((List<Servicio>)ViewBag.Servicios).Count)
+                            {
+                                <td>
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">@(((List<Servicio>)ViewBag.Servicios)[i + 1].NombreServicio)</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            @(((List<Servicio>)ViewBag.Servicios)[i + 1].Descripcion)
+                                        </div>
+                                        <div class="btn btn-success">
+                                            <input class="btn btn-check" type="checkbox" name="serviciosid" value="@(((List<Servicio>)ViewBag.Servicios)[i + 1].IdServicio)"/>
+                                            Agregar por $@(((List<Servicio>)ViewBag.Servicios)[i + 1].Precio)
+                                        </div>
+                                    </div>
+                                </td>
+                                @(i++)
+                            }
+                        </tr>
+                    }
+                </table>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Calcular" class="btn btn-primary"/>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Cancelar</a>
 </div>
 
 @section Scripts {

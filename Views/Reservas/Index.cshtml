@@ -1,60 +1,61 @@
 ﻿@model IEnumerable<Proyecto_Final_Estructura_De_Datos.Models.Reserva>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Reservas";
     Layout = "~/Views/Admin/_Layout.cshtml";
+    List<Reserva> reservas = Model.ToList();
 }
 
-<h1>Index</h1>
+<h1>Reservas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Reserva</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FechaInicio)
+                Fecha de entrada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaFinal)
+                Fecha de salida
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrecioTotal)
+                Precio Total
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdHabitacionNavigation)
+                Habitación
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+                Usuario
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFinal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdHabitacionNavigation.IdHabitacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdReserva">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdReserva">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdReserva">Delete</a>
-            </td>
-        </tr>
+@for (int i = 0; i<reservas.Count;i++) {
+    <tr>
+        <td>
+            @((ViewBag.Usuarios as List<Usuario>)[i].Nombre)
+        </td>
+        <td>
+            @((ViewBag.Habitaciones as List<Habitacion>)[i].Descripcion) - @((ViewBag.Habitaciones as List<Habitacion>)[i].Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reservas[i].FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reservas[i].FechaFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reservas[i].PrecioTotal)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@reservas[i].IdReserva">Editar</a> |
+            <a asp-action="Details" asp-route-id="@reservas[i].IdReserva">Detalles</a> |
+            <a asp-action="Delete" asp-route-id="@reservas[@i].IdReserva">Eliminar</a>
+        </td>
+    </tr>
 }
     </tbody>
 </table>

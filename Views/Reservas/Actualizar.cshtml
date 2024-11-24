@@ -1,0 +1,88 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.ViewModels.ReservasViewModel
+
+@{
+    ViewData["Title"] = "Guardar";
+    List<Servicio> servicios = null;
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h1>Actualizar?</h1>
+
+<div>
+    <h4>Actualizar reserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Usuario que reservo
+        </dt>
+        <dd class = "col-sm-10">
+            @((ViewBag.Usuario as Usuario).Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            Habitacion reservada
+        </dt>
+        <dd class="col-sm-10">
+            @((ViewBag.Habitacion as Habitacion).Descripcion) - @((ViewBag.Habitacion as Habitacion).Tipo) - $ @((ViewBag.Habitacion as Habitacion).PrecioNoche) / Noche
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de entrada
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de salida
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinal)
+        </dd>
+        <dt class="col-sm-2">
+            Reserva por
+        </dt>
+        <dd class="col-sm-10">
+            @(ViewBag.Noches) Noches
+        </dd>
+        <dt class="col-sm-2">
+            Servicios adquiridos
+        </dt>
+        <dd class="col-sm-10">
+            <div class="card border-left-warning">
+                <div class="card-body">
+                    @foreach (Servicio item in Model.ServiciosReservados)
+                    {
+                        <p>@item.Descripcion - $ @item.Precio</p>
+                    }
+                </div>
+            </div>
+        </dd>
+        <dt class="col-sm-2">
+            Importe total
+        </dt>
+        <dd class="col-sm-10">
+            $ @Html.DisplayFor(model => model.PrecioTotal)
+        </dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="@Model.IdReserva" value="@Model.IdReserva"/>
+        <input type="hidden" asp-for="@Model.IdUsuario" value="@Model.IdUsuario"/>
+        <input type="hidden" asp-for="@Model.IdHabitacion" value="@Model.IdHabitacion"/>
+        <input type="hidden" asp-for="@Model.FechaInicio" value="@Model.FechaInicio"/>
+        <input type="hidden" asp-for="@Model.FechaFinal" value="@Model.FechaFinal"/>
+        <input type="hidden" asp-for="@Model.PrecioTotal" value="@Model.PrecioTotal"/>
+        <div id="serviciosReservados">
+            @for (int i = 0; i < Model.ServiciosReservados.Count; i++)
+            {
+                <div class="servicio-item">
+                    <input type="hidden" asp-for="@Model.ServiciosReservados[@i].IdServicio"/>
+                    <input type="hidden" asp-for="@Model.ServiciosReservados[@i].Descripcion"/>
+                    <input type="hidden" asp-for="@Model.ServiciosReservados[@i].NombreServicio"/>
+                    <input type="hidden" asp-for="@Model.ServiciosReservados[@i].Precio"/>
+                </div>
+            }
+        </div>
+        <input type="submit" value="Actualizar y Aceptar" class="btn btn-primary"/>
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>

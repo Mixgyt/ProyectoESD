@@ -4,6 +4,8 @@ namespace Proyecto_Final_Estructura_De_Datos.Models.ViewModels
 {
     public class ReservasViewModel
     {
+        public int IdReserva { get; set; }
+        
         [Required]
         [Display(Name="Usuario")]
         public int IdUsuario { get; set; }
