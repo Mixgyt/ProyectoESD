@@ -27,6 +27,16 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers
 			return View();
 		}
 
+		public IActionResult Registro()
+		{
+			return View();
+		}
+
+		public IActionResult Login()
+		{
+			return View();
+		}
+
 		public IActionResult Habitaciones()
 		{
 			return View();
