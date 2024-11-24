@@ -1,5 +1,8 @@
-﻿@{
+﻿@model Usuario;
+
+@{
     ViewData["Title"] = "Login ";
+    String error = ViewBag.Error;
     Layout = null;
 }
 
@@ -11,6 +14,7 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="~/css/Login&Registro.css">
+    <link rel="stylesheet" href="~/css/sb-admin-2.min.css">
 </head>
 <body>
 
@@ -26,21 +30,28 @@
                         <figure><img src="~/img/signup-image.jpg" alt="sing up image"></figure>
                         <a class="signup-image-link" asp-area="" asp-controller="Home" asp-action="Registro">Registro </a>
                     </div>
-
                     <div class="signin-form">
                         <h2 class="form-title">Login</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        @if (!String.IsNullOrEmpty(error))
+                        {
+                            <div class="card mb-4 py-3 border-bottom-danger">
+                                <div class="card-body">
+                                    @(error)
+                                </div>
+                            </div>
+                        }
+                        <form asp-action="Login">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Ingrese su usuario" />
+                                <input type="text" asp-for="Nombre" placeholder="Ingrese su usuario" />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Ingrese su contraseña" />
+                                <input type="password" asp-for="Clave" placeholder="Ingrese su contraseña" />
                             </div>
 
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Iniciar Sesion" />
+                                <input type="submit" class="form-submit" value="Iniciar Sesion" />
                             </div>
                         </form>
                     </div>

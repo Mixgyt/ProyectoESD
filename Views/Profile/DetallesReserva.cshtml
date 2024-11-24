@@ -1,0 +1,62 @@
+﻿@model Proyecto_Final_Estructura_De_Datos.Models.Reserva
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "~/Views/Profile/_Layout.cshtml";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Reserva de
+        </dt>
+        <dd class = "col-sm-10">
+            @((ViewBag.Usuario as Usuario).Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            Habitacion reservada
+        </dt>
+        <dd class="col-sm-10">
+            @((ViewBag.Habitacion as Habitacion).Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de entrada
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de salida
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinal)
+        </dd>
+        <dt class="col-sm-2">
+            Servicios agregados
+        </dt>
+        <dd class="col-sm-10">
+            <div class="card border-left-warning">
+                <div class="card-body">
+                    @foreach (Servicio item in ViewBag.Servicios)
+                    {
+                        <p>@item.Descripcion - $ @item.Precio</p>
+                    }
+                </div>
+            </div>
+        </dd>
+        <dt class="col-sm-2">
+            Precio total
+        </dt>
+        <dd class="col-sm-10">
+            $ @Html.DisplayFor(model => model.PrecioTotal)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditReserva" asp-route-id="@Model?.IdReserva">Editar</a> |
+    <a asp-action="Reservas">Volver atras</a>
+</div>

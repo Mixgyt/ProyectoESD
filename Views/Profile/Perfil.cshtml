@@ -1,0 +1,48 @@
+@model Proyecto_Final_Estructura_De_Datos.Models.Usuario
+
+@{
+    Layout = "~/Views/Profile/_Layout.cshtml";
+}
+
+<h1>Usuario Actual</h1>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre de usuario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            Correo vinculado
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Eres
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Rol == RolUsuario.Usuario)
+            {
+                @("Usuario de nuestro hotel")
+            }
+            else
+            {
+                @(Model.Rol)
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Posees
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservas) Reservas
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditUser" asp-route-id="@Model?.IdUsuario">Editar Perfil</a>
+</div>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@(ViewData["Title"]) - Panel Administrativo</title>
+    <title>@(ViewData["Title"]) - Panel Usuario</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,14 +29,14 @@
     <div id="wrapper">
 
 	    <!-- Sidebar -->
-	    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+	    <ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
 
 		    <!-- Sidebar - Brand -->
-		    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Habitaciones" asp-action="Index">
+		    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Profile" asp-action="Perfil">
 			    <div class="sidebar-brand-icon rotate-n-15">
 				    <i class="fas fa-user"></i>
 			    </div>
-			    <div class="sidebar-brand-text mx-3">PANEL DE ADMINISTRACION <sup></sup></div>
+			    <div class="sidebar-brand-text mx-3">PANEL DE USUARIO <sup></sup></div>
 		    </a>
 
 		    <!-- Divider -->
@@ -45,8 +45,8 @@
 		    <!-- Nav Item - Dashboard -->
 		    <li class="nav-item active">
 			    <a class="nav-link" asp-controller="Home" asp-action="Index">
-				    <i class="fas fa-eye fa-eye"></i>
-				    <span>Vista Home</span></a>
+				    <i class="fas fa-arrow-circle-left"></i>
+				    <span>Volver a inicio</span></a>
 		    </li>
 
 		    <!-- Divider -->
@@ -58,27 +58,15 @@
 		    </div>
 
 		    <li class="nav-item">
-			    <a class="nav-link" asp-controller="Usuarios" asp-action="Index">
-				    <i class="fas fa-fw fa-table"></i>
-				    <span>Usuarios</span></a>
+			    <a class="nav-link" asp-controller="Profile" asp-action="Perfil">
+				    <i class="fas fa-fw fa-user-alt"></i>
+				    <span>Perfil</span></a>
 		    </li>
 
 		    <li class="nav-item">
-			    <a class="nav-link" asp-controller="Habitaciones" asp-action="Index">
-				    <i class="fas fa-fw fa-table"></i>
-				    <span>Habitaciones</span></a>
-		    </li>
-
-		    <li class="nav-item">
-			    <a class="nav-link" asp-controller="Servicios" asp-action="Index">
-				    <i class="fas fa-fw fa-table"></i>
-				    <span>Servicios</span></a>
-		    </li>
-
-		    <li class="nav-item">
-			    <a class="nav-link" asp-controller="Reservas" asp-action="Index">
-				    <i class="fas fa-fw fa-table"></i>
-				    <span>Reservas Habitaciónes</span></a>
+			    <a class="nav-link" asp-controller="Profile" asp-action="Reservas">
+				    <i class="fas fa-fw fa-hotel"></i>
+				    <span>Reservas</span></a>
 		    </li>
             
 		    <!-- Divider -->

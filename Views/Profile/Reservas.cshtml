@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Proyecto_Final_Estructura_De_Datos.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas Usuario";
+    Layout = "~/Views/Profile/_Layout.cshtml";
+    List<Reserva> reservas = Model.ToList();
+}
+
+<h1>Reservas</h1>
+
+<p>
+    <a asp-action="Create">Crear Reserva</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Habitación
+        </th>
+        <th>
+            Fecha de entrada
+        </th>
+        <th>
+            Fecha de salida
+        </th>
+        <th>
+            Precio Total
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@for (int i = 0; i<reservas.Count;i++) {
+    <tr>
+        <td>
+            @((ViewBag.Habitaciones as List<Habitacion>)[i].Descripcion) - @((ViewBag.Habitaciones as List<Habitacion>)[i].Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reservas[i].FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reservas[i].FechaFinal)
+        </td>
+        <td>
+            $ @Html.DisplayFor(modelItem => reservas[i].PrecioTotal)
+        </td>
+        <td>
+            <a asp-action="EditReserva" asp-route-id="@reservas[i].IdReserva">Editar</a> |
+            <a asp-action="DetallesReserva" asp-route-id="@reservas[i].IdReserva">Detalles</a> |
+            <a asp-action="Cancelar" asp-route-id="@reservas[i].IdReserva">Cancelar</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
