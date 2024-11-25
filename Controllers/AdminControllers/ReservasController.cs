@@ -210,7 +210,8 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers.AdminControllers
                 servicios.Add(servicio);
             }
             
-            int noches = reserva.FechaInicio.CompareTo(reserva.FechaFinal);
+            TimeSpan tiempo = reserva.FechaFinal.ToDateTime(TimeOnly.Parse("00:00")) - reserva.FechaInicio.ToDateTime(TimeOnly.Parse("00:00"));
+            int noches = (int)tiempo.TotalDays;
             if (noches <= 0)
             {
                 noches = 1;

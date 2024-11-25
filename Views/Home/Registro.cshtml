@@ -11,11 +11,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
     <link rel="stylesheet" href="~/css/Login&Registro.css">
+    <link rel="stylesheet" href="~/css/password.css"/>
+    <style>
+
+        .btn-return {
+            margin:0 20px;
+            background-color: #E74C3C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-return:hover{
+            background-color: #C0392B;
+        }
+        
+        .btn-basic{
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-basic:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 
 <div class="main">
     <div>
-        <a class="Link-Inicio" style="margin: 30px" asp-action="Index">Regresar</a>
+
     </div>
     <section class="sign-in" id="cuenta">
         <div class="container">
@@ -25,26 +62,28 @@
                     <form asp-action="Registro" method="post" class="register-form" id="register-form">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input asp-for="Nombre" id="name" placeholder="Ingrese su nombre" />
+                            <input asp-for="Nombre" id="name" placeholder="Ingrese su nombre"/>
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input asp-for="Email" id="email" placeholder="Ingrese su correo electronico" />
+                            <input asp-for="Email" id="email" placeholder="Ingrese su correo electronico"/>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" asp-for="Clave" id="pass" placeholder="Ingrese su contraseña"  />
+                            <input asp-for="Clave" id="password-field" class="pass zmdi zmdi-account material-icons-name" type="password" placeholder="Contraseña"/>
                             <span asp-validation-for="Clave" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password"  id="re_pass" placeholder="Ingrese nuevamente la contraseña " />
+                            <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input id="re-password-field" class="re_pass zmdi zmdi-account material-icons-name" type="password" placeholder="Vuelve a ingresar tu contraseña"/>
                         </div>
-                        <div class="form-group form-button">
+                        <div class="form-group form-button" >
                             <a class="signup-image-link" asp-area="" asp-controller="Home" asp-action="Login">Ya tienes una cuenta!? </a>
-                            <input type="submit" name="signup" id="signup" class="form-submit" value="Registrarse" onclick="return validateMatch();"/>
+
+                            <button class="btn-return" asp-action="Index">Regresar</button>
+                            <input type="submit" name="signup" id="signup" class="btn-basic form-submit" value="Registrarse" onclick="return validateMatch();"/>
                         </div>
                     </form>
                 </div>
@@ -58,9 +97,21 @@
 
 <script>
     function validateMatch() {
-        const pass = document.getElementById('pass').value;
-        const rePass = document.getElementById('re_pass').value;
+        const passL = document.getElementsByClassName('pass');
+        const rePassL = document.getElementsByClassName('re_pass');
         const button = document.getElementById('signup');
+        
+        let pass;
+        for (let i =0;i<passL.length;i++){
+            pass = passL[i];
+            break;
+        }
+        
+        let rePass;
+        for (let i =0;i<rePassL.length;i++){
+            rePass = rePassL[i];
+            break;
+        }
 
         if (pass === rePass && pass !== "") {
             return true;

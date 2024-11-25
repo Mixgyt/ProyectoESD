@@ -39,8 +39,7 @@
                 <span asp-validation-for="Clave" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rol" class="control-label">Rol del usuario</label>
-                <select asp-for="Rol" class="form-control" asp-items="@(new SelectList(Enum.GetValues<RolUsuario>().Reverse()))"></select>
+                <input type="hidden" asp-for="Rol" class="form-control" value="@Model.Rol"></input>
                 <span asp-validation-for="Rol" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -51,7 +50,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Cancelar</a>
+    <a asp-action="Perfil">Cancelar</a>
 </div>
 
 @section Scripts {

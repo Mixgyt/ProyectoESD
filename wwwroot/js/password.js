@@ -15,6 +15,7 @@ function addListeners() {
 
 function togglePassword() {
     const passwordField = document.querySelector("#password-field");
+    const rePasswordField = document.querySelector("#re-password-field");
     const toggleButton = document.querySelector(".toggle-button");
 
     if (!passwordField || !toggleButton) {
@@ -27,6 +28,7 @@ function togglePassword() {
 
     toggleButton.innerHTML = isEyeOpen ? eyeIcons.closed : eyeIcons.open;
     passwordField.type = isEyeOpen ? "text" : "password";
+    rePasswordField.type = isEyeOpen ? "text" : "password";
 }
 
 document.addEventListener("DOMContentLoaded", addListeners);

@@ -1,0 +1,67 @@
+@model Proyecto_Final_Estructura_De_Datos.Models.ViewModels.ReservasViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="best-deal">
+<div class="container">
+    <form asp-action="Reservar">
+        <div>
+            <input type="hidden" asp-for="FechaInicio" value="@Model.FechaInicio"/>
+            <input type="hidden" asp-for="FechaFinal" value="@Model.FechaFinal"/>
+            <label asp-for="IdHabitacion">Habitaciones disponibles:</label>
+            <select asp-for="IdHabitacion" class="form-select">
+                @if ((ViewBag.Habitaciones as List<Habitacion>).Count<=0)
+                {
+                    <option value="0">No hay habitaciones disponibles</option>
+                }
+                @foreach (Habitacion item in (ViewBag.Habitaciones as List<Habitacion>))
+                {
+                    <option value="@item.IdHabitacion">@(item.Descripcion) - @(item.Tipo) - @(item.PrecioNoche)</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label class="form-label" for="numero">Número de Habitaciones disponibles: @((ViewBag.Habitaciones as List<Habitacion>).Count)</label>
+        </div>
+        <div>
+            <label>Servicios Adicionales:</label>
+            <div class="section properties">
+                <div class="container"> 
+                    <div class="row properties-box">
+                        @foreach (Servicio servicio in ViewBag.Servicios)
+                        {
+                            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
+                                <div class="item">
+                                    <a href="property-details.html"><img/></a>
+                                    <span class="category">@servicio.NombreServicio</span>
+                                    <h6>@servicio.Precio.ToString("C")</h6>
+                                    <h4>@servicio.Descripcion</h4>
+                                    <ul>
+                                    </ul>
+                                    <div class="main-button">
+                                        <a style="color: white">
+                                            <input for="servicioid" type="checkbox" name="serviciosid" value="@servicio.IdServicio"/>
+                                            Hacer Reservación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if ((ViewBag.Habitaciones as List<Habitacion>).Count<=0)
+        {
+            <input type="submit" value="No se puede reservar" class="btn-reserva"/>
+        }
+        else
+        {
+            <input type="submit" value="Reservar Habitacion" class="btn-reserva"/>
+        }
+    </form>
+</div>
+</div>

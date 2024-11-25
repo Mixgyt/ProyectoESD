@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@inject DbHotelContext _context;
+@{
+	ViewBag.Context = _context;
+}
+
+@{
+	var userId = Context.Request.Cookies["UserId"];
+	Usuario usuario = null;
+	if (userId != null)
+	{
+		usuario = (ViewBag.Context as DbHotelContext).Usuarios.Find(int.Parse(userId));
+	}
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,12 +70,14 @@
 		    <div class="sidebar-heading">
 			    Interfaces
 		    </div>
-
-		    <li class="nav-item">
-			    <a class="nav-link" asp-controller="Usuarios" asp-action="Index">
-				    <i class="fas fa-fw fa-table"></i>
-				    <span>Usuarios</span></a>
-		    </li>
+			@if (usuario.Rol == RolUsuario.Gerente)
+		    {
+			    <li class="nav-item">
+				    <a class="nav-link" asp-controller="Usuarios" asp-action="Index">
+					    <i class="fas fa-fw fa-table"></i>
+					    <span>Usuarios</span></a>
+			    </li>
+		    }
 
 		    <li class="nav-item">
 			    <a class="nav-link" asp-controller="Habitaciones" asp-action="Index">

@@ -1,0 +1,21 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section best-deal">
+<div class="container">
+    <script src="~/js/date_validate.js"></script>
+    <form asp-controller="Home" asp-action="ReservarHabitacion" method="post">
+        <div>
+            <label for="check_in">Fecha de entrada:</label>
+            <input type="date" class="form-control" id="check_in" name="check_in"/>
+        </div>
+        <div>
+            <label for="check_out">Fecha de salida:</label>
+            <input type="date" class="form-control" id="check_out" name="check_out"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Reservar</button>
+    </form>
+</div>
+</div>
