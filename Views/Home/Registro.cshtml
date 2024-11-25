@@ -11,7 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
     <link rel="stylesheet" href="~/css/Login&Registro.css">
-    <link rel="stylesheet" href="~/css/password.css"/>
     <style>
 
         .btn-return {
@@ -72,12 +71,12 @@
                         </div>
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input asp-for="Clave" class="pass zmdi zmdi-account material-icons-name" type="password" placeholder="Contraseña"/>
+                            <input type="password" asp-for="Clave" id="pass" placeholder="Ingrese su contraseña"  />
                             <span asp-validation-for="Clave" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input class="re_pass zmdi zmdi-account material-icons-name" type="password" placeholder="Vuelve a ingresar tu contraseña"/>
+                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="password" name="re_pass" id="re_pass" placeholder="Ingrese nuevamente la contraseña " />
                         </div>
                         <div class="form-group form-button" >
                             <a class="signup-image-link" asp-area="" asp-controller="Home" asp-action="Login">Ya tienes una cuenta!? </a>
@@ -97,21 +96,9 @@
 
 <script>
     function validateMatch() {
-        const passL = document.getElementsByClassName('pass');
-        const rePassL = document.getElementsByClassName('re_pass');
+        const pass = document.getElementById('pass').value;
+        const rePass = document.getElementById('re_pass').value;
         const button = document.getElementById('signup');
-        
-        let pass;
-        for (let i =0;i<passL.length;i++){
-            pass = passL[i];
-            break;
-        }
-        
-        let rePass;
-        for (let i =0;i<rePassL.length;i++){
-            rePass = rePassL[i];
-            break;
-        }
 
         if (pass === rePass && pass !== "") {
             return true;
@@ -124,7 +111,6 @@
     function validarContrasenas() {
         //Validamos que las dos contraseñas sean iguales antes de disparar el evento del button
         document.getElementById('re_pass').addEventListener('input', validateMatch);
-
     }
     
 </script>

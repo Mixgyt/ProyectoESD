@@ -57,6 +57,7 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers.AdminControllers
         {
             if (ModelState.IsValid)
             {
+                usuario.Clave = Encripter.EnconderSHA256(usuario.Clave);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -96,6 +97,7 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers.AdminControllers
             {
                 try
                 {
+                    usuario.Clave = Encripter.EnconderSHA256(usuario.Clave);
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }

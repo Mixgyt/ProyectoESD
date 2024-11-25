@@ -49,6 +49,7 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers
 			if (ModelState.IsValid)
 			{
 				usuario.Rol = RolUsuario.Usuario;
+				usuario.Clave = Encripter.EnconderSHA256(usuario.Clave);
 				_context.Add(usuario);
 				await _context.SaveChangesAsync();
 				return RedirectToAction(nameof(Login));
@@ -66,6 +67,7 @@ namespace Proyecto_Final_Estructura_De_Datos.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult Login([FromForm] Usuario usuario)
 		{
+			usuario.Clave = Encripter.EnconderSHA256(usuario.Clave);
 			Usuario usuarioRetornado =
 				_context.Usuarios.FirstOrDefault(u => u.Nombre == usuario.Nombre && u.Clave == usuario.Clave);
 			if (usuarioRetornado != null)
